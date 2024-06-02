@@ -27,6 +27,11 @@ def is_square():
       :returns: True if square (i.e. if equal length and height), False otherwise.
     """
     #### write your solution for this function below here. ####
+    width = float(input("Enter width of an area: "))
+    height = float(input("Enter height of an area: "))
+    if width == height:
+        return True
+    return False
 
 
 def get_greatest():
@@ -38,6 +43,11 @@ def get_greatest():
     :returns: the greatest of the two input numbers, as an int.
     """
     #### write your solution for this function below here. ####
+    number_1 = int(input("Enter the first number: "))
+    number_2 = int(input("Enter the second number: "))
+    if number_1 > number_2:
+        return number_1
+    return number_2
 
 
 def get_bmi_category():
@@ -60,6 +70,24 @@ def get_bmi_category():
       :returns: The name of the BMI statistical category, based on the inputted height and weight.
     """
     #### write your solution for this function below here. ####
+    height = float(input("Enter your height (in inches): "))
+    weight = float(input("Enter your weight (in pounds): "))
+    bmi = 703 * weight / (height * height)
+    if bmi < 15:
+        return "Very severely underweight"
+    if 15 <= bmi < 16:
+        return "Severely underweight"
+    if 16 <= bmi < 18.5:
+        return "Underweight"
+    if 18.5 <= bmi < 25:
+        return "Normal"
+    if 25 <= bmi < 30:
+        return "Overweight"
+    if 30 <= bmi < 35:
+        return "Moderately obese"
+    if 35 <= bmi < 40:
+        return "Severely obese"
+    return "Very severely obese"
 
 
 def get_discount():
@@ -72,7 +100,12 @@ def get_discount():
       :returns: The cost of the masks, after any discounts, e.g. "$4,000" for 1000 masks.
     """
     #### write your solution for this function below here. ####
-
+    amount_of_musks = int(input("How many masks you would like: "))
+    if amount_of_musks < 5000:
+        total_cost = amount_of_musks * 5
+        return "$" + format(total_cost, ",d")
+    total_cost = round(amount_of_musks * 5 * 0.80)
+    return "$" + format(total_cost, ",d")
 
 def is_leap_year():
     """
@@ -85,3 +118,11 @@ def is_leap_year():
         get_year()
     )  # this line is given to you - the variable, year, holds the current year
     #### write your solution for this function below here. ####
+    if year % 100 == 0:
+        if year % 400 == 0:
+            return True
+        return False
+    
+    if year % 4 == 0:
+        return True
+    return False
